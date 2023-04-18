@@ -1,0 +1,17 @@
+the arch repos have packages called glfw-x11 and glad
+learnOpenGL tutorial says to install glfw and glad manually
+I just used glfw from the arch repo, but I installed glad manually because the
+arch repo glad package didn't work with learnOpenGL instructions
+
+https://learnopengl.com/Getting-started/Creating-a-window
+section "OpenGL library on Linux"
+says 
+" For Linux users compiling with GCC, the following command line options may
+help you compile the project: -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl.
+Not correctly linking the corresponding libraries will generate many undefined
+reference errors. "
+
+I added those linker flags to my makefile, but I had an error about -lglfw3 not
+being found, so I changed it to -lglfw and that seems to work (for now...)
+
+also, apparently the include order for glad and glfw matters ?
